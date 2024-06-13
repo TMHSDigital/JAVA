@@ -1,0 +1,22 @@
+{
+    "name": "Java Dev Container",
+    "image": "mcr.microsoft.com/vscode/devcontainers/java:0-11",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "vscjava.vscode-java-pack",
+          "redhat.java",
+          "vscjava.vscode-maven",
+          "vscjava.vscode-java-debug",
+          "vscjava.vscode-java-test"
+        ],
+        "settings": {
+          "java.jdt.ls.java.home": "/usr/local/openjdk-11",
+          "java.configuration.updateBuildConfiguration": "automatic",
+          "editor.formatOnSave": true
+        }
+      }
+    },
+    "postCreateCommand": "java -version",
+    "remoteUser": "vscode"
+}
