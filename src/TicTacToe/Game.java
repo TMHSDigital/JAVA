@@ -59,4 +59,37 @@ public class Game {
 
         // Check columns
         for (int j = 0; j < BOARD_SIZE; j++) {
-            if (board[0][j] == currentPlayer.getSymbol() && board[1
+            if (board[0][j] == currentPlayer.getSymbol() && board[1][j] == currentPlayer.getSymbol() && board[2][j] == currentPlayer.getSymbol()) {
+                return true;
+            }
+        }
+
+        // Check diagonals
+        if (board[0][0] == currentPlayer.getSymbol() && board[1][1] == currentPlayer.getSymbol() && board[2][2] == currentPlayer.getSymbol()) {
+            return true;
+        }
+
+        if (board[0][2] == currentPlayer.getSymbol() && board[1][1] == currentPlayer.getSymbol() && board[2][0] == currentPlayer.getSymbol()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    // Checks if the board is full
+    public boolean isBoardFull() {
+        for (int i = 0; i < BOARD_SIZE; i++) {
+            for (int j = 0; j < BOARD_SIZE; j++) {
+                if (board[i][j] == ' ') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    // Switches the current player
+    public void switchPlayer() {
+        currentPlayer = (currentPlayer == Player.X) ? Player.O : Player.X;
+    }
+}
