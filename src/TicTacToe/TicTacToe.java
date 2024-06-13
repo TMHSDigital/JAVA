@@ -16,13 +16,15 @@ public class TicTacToe {
 
             while (!validMove) {
                 try {
-                    System.out.println("Player " + game.currentPlayer.getSymbol() + ", enter your move (row and column): ");
+                    System.out.println("Player " + game.currentPlayer.getSymbol() + ", enter your move (row and column, separated by a space): ");
                     row = scanner.nextInt();
                     col = scanner.nextInt();
                     validMove = game.playerMove(row, col);
                 } catch (InputMismatchException e) {
-                    System.out.println("Invalid input. Please enter two integers.");
+                    System.out.println("Invalid input. Please enter two integers separated by a space.");
                     scanner.next(); // clear the invalid input
+                } catch (Exception e) {
+                    System.out.println("An error occurred: " + e.getMessage());
                 }
             }
 
